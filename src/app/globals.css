@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+    --color-light-yellow: #ffdf8c;
+    --color-orange: #fe5f1e;
+    --color-orange-hover: #fe651e;
+    --color-gray: #7b7b7b;
+}
+
+@layer base {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    h4 {
+        font-size: 22px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+    }
+
+    button {
+        cursor: pointer;
+    }
+}
+
+@utility button-hover {
+    @apply hover:bg-orange-hover transition-colors duration-250;
+}
