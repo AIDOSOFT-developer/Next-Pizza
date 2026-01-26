@@ -1,18 +1,11 @@
-import { CartButton } from "../components/UI/Button";
-import Logo from "../components/UI/Logo";
+import Category from "../components/UI/Category";
+import Sort from "../components/UI/Sort";
 
 export default function Home() {
-    const height = 100;
-    let marginInline = 2 * 30;
-
     return (
-        <div
-            className={`container rounded-xl p-7.5 bg-white h-[calc(${height}vh-${marginInline}px)] mx-auto m-7.5`}
-        >
-            <div className="flex justify-between">
-                <Logo />
-                <CartButton />
-            </div>
+        <div className="flex justify-between items-center mt-10 ">
+            <Category />
+            <Sort />
         </div>
     );
 }
