@@ -22,7 +22,7 @@
     }
 
     h4 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     h1,
@@ -41,4 +41,8 @@
 
 @utility button-hover {
     @apply hover:bg-orange-hover transition-colors duration-250;
+}
+
+@utility button-inline-hover {
+    @apply hover:bg-orange hover:text-white transition duration-250 ease-in-out;
 }

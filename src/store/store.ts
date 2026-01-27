@@ -1,8 +1,18 @@
 import { create } from "zustand";
+import { IPizzaDTO } from "@/src/types/pizza";
+
+interface PizzaStore {
+    pizza: IPizzaDTO[];
+    currentState: number;
+    setPizza: (pizza: IPizzaDTO[]) => void;
+    setCurrentState: (index: number) => void;
+    setCategoryActive: (id: number) => void;
+}
 
 interface CurrentState {
     currentState: number;
     setCurrentState: (index: number) => void;
+    setCategoryActive: (id: number) => void;
 }
 
 interface CurrentSortStore {
@@ -12,9 +22,17 @@ interface CurrentSortStore {
     setActive: () => void;
 }
 
-export const useCategoryState = create<CurrentState>()((set) => ({
+export const usePizzaData = create<PizzaStore>()((set) => ({
+    pizza: [],
     currentState: 0,
+    setPizza: (pizza) => set(() => ({ pizza })),
     setCurrentState: (index) => set(() => ({ currentState: index })),
+    setCategoryActive: (id) =>
+        set((state) => ({
+            pizza: state.pizza.map((item) =>
+                item.id === id ? { ...item } : item,
+            ),
+        })),
 }));
 
 export const useSortStore = create<CurrentSortStore>()((set) => ({
