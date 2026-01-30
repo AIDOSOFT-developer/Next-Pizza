@@ -2,42 +2,39 @@ import { create } from "zustand";
 import { IPizzaDTO } from "@/src/types/pizza";
 
 interface PizzaStore {
-    pizza: IPizzaDTO[];
-    currentState: number;
-    setPizza: (pizza: IPizzaDTO[]) => void;
-    setCurrentState: (index: number) => void;
-    setCategoryActive: (id: number) => void;
-}
-
-interface CurrentState {
-    currentState: number;
-    setCurrentState: (index: number) => void;
-    setCategoryActive: (id: number) => void;
-}
-
-interface CurrentSortStore {
-    currentItem: string;
-    isActive: boolean;
-    setCurrentState: (index: string) => void;
-    setActive: () => void;
+  pizza: IPizzaDTO[];
+  currentState: number;
+  currentItem: string;
+  isActiveMockup: boolean;
+  setPizza: (pizza: IPizzaDTO[]) => void;
+  setActiveMockup: () => void;
+  setCurrentState: (index: number) => void;
+  setCurrentItem: (index: string) => void;
+  sortPizza: (string: string) => void;
 }
 
 export const usePizzaData = create<PizzaStore>()((set) => ({
-    pizza: [],
-    currentState: 0,
-    setPizza: (pizza) => set(() => ({ pizza })),
-    setCurrentState: (index) => set(() => ({ currentState: index })),
-    setCategoryActive: (id) =>
+  pizza: [],
+  currentState: 0,
+  isActiveMockup: false,
+  currentItem: "популярности",
+  setPizza: (pizza) => set(() => ({ pizza })),
+  setActiveMockup: () =>
+    set((state) => ({ isActiveMockup: !state.isActiveMockup })),
+  setCurrentState: (index) => set(() => ({ currentState: index })),
+  sortPizza(string) {
+    switch (string) {
+      case "по цене (ASC)":
         set((state) => ({
-            pizza: state.pizza.map((item) =>
-                item.id === id ? { ...item } : item,
-            ),
-        })),
-}));
-
-export const useSortStore = create<CurrentSortStore>()((set) => ({
-    currentItem: "популярности",
-    isActive: false,
-    setCurrentState: (string) => set(() => ({ currentItem: string })),
-    setActive: () => set((state) => ({ isActive: !state.isActive })),
+          pizza: state.pizza.sort((a, b) => a.price - b.price),
+        }));
+        break;
+      case "по цене (DESC)":
+        set((state) => ({
+          pizza: state.pizza.sort((a, b) => b.price - a.price),
+        }));
+        break;
+    }
+  },
+  setCurrentItem: (index) => set({ currentItem: index }),
 }));
