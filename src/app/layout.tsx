@@ -31,13 +31,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full bg-light-yellow `}
+                className={`${geistSans.variable} ${geistMono.variable} bg-light-yellow h-full w-full antialiased`}
             >
                 <main>
                     <div
-                        className={`container rounded-xl p-7.5 bg-white h-[calc(${height}vh-${marginInline}px)] mx-auto m-7.5`}
+                        className={`container rounded-xl bg-white p-7.5 h-[calc(${height}vh-${marginInline}px)] m-7.5 mx-auto`}
                     >
-                        <div className="flex flex-col sm:flex-row gap-2 justify-between pb-4 md:pb-10 border-b-2 border-silver">
+                        <div className="border-silver flex flex-col justify-between gap-2 border-b-2 pb-4 sm:flex-row md:pb-10">
                             <Logo />
                             <CartButton />
                         </div>

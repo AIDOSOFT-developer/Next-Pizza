@@ -1,19 +1,34 @@
+"use client";
+
 import Image from "next/image";
 import CartIcon from "@/public/icons/cart.svg";
+import { usePizzaCart } from "@/src/store/store";
 
-export function Button({ text }: { text: string }) {
+export function Button({
+    text,
+    onClick,
+}: {
+    text: string;
+    onClick: () => void;
+}) {
     return (
-        <button className="px-4 py-2.5 border-2 border-orange rounded-full font-bold text-orange button-inline-hover">
+        <button
+            className="border-orange text-orange button-inline-hover rounded-full border-2 px-4 py-2.5 font-bold"
+            onClick={onClick}
+        >
             {text}
         </button>
     );
 }
 
 export function CartButton() {
+    const price = usePizzaCart((state) => state.totalPrice);
+    const quantity = usePizzaCart((state) => state.pizzaquantity);
+
     return (
-        <button className="px-3 py-2 md:px-5 md:py-3.75 bg-orange button-hover justify-around  text-white rounded-full font-bold flex gap-3 items-center">
-            <div className="">550 $</div>
-            <span className="w-px h-6.5 bg-white/25" />
+        <button className="bg-orange button-hover flex items-center justify-around gap-3 rounded-full px-3 py-2 font-bold text-white md:px-5 md:py-3.75">
+            <div className="">{price} $</div>
+            <span className="h-6.5 w-px bg-white/25" />
             <div className="flex gap-2">
                 <Image
                     width={16}
@@ -22,7 +37,7 @@ export function CartButton() {
                     alt="Cart Icon"
                     unoptimized
                 />
-                1
+                {quantity}
             </div>
         </button>
     );

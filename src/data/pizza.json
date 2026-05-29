@@ -1,46 +1,46 @@
 [
-  {
-    "id": 1,
-    "name": "Сырная",
-    "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-    "category": [0, 1],
-    "size": [26, 30, 40],
-    "price": 490
-  },
+    {
+        "id": 1,
+        "name": "Сырная",
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
+        "category": [0, 1],
+        "size": [26, 30, 40],
+        "price": 490
+    },
 
-  {
-    "id": 2,
-    "name": "Сырная",
-    "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-    "category": [0, 1],
-    "size": [26, 30, 40],
-    "price": 395
-  },
+    {
+        "id": 2,
+        "name": "Мясная",
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
+        "category": [0, 1],
+        "size": [26, 30, 40],
+        "price": 395
+    },
 
-  {
-    "id": 3,
-    "name": "Сырная",
-    "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-    "category": [0, 1],
-    "size": [26, 30, 40],
-    "price": 1500
-  },
+    {
+        "id": 3,
+        "name": "Пепперони",
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
+        "category": [0, 1],
+        "size": [26, 30, 40],
+        "price": 1500
+    },
 
-  {
-    "id": 4,
-    "name": "Сырная",
-    "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-    "category": [0, 1],
-    "size": [26, 30, 40],
-    "price": 2100
-  },
+    {
+        "id": 4,
+        "name": "Гавайская",
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
+        "category": [0, 1],
+        "size": [26, 30, 40],
+        "price": 2100
+    },
 
-  {
-    "id": 5,
-    "name": "Сырная",
-    "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-    "category": [0, 1],
-    "size": [26, 30, 40],
-    "price": 150
-  }
+    {
+        "id": 5,
+        "name": "Вегетарианская",
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
+        "category": [0, 1],
+        "size": [26, 30, 40],
+        "price": 150
+    }
 ]
