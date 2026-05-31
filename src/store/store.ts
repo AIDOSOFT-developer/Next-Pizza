@@ -1,17 +1,5 @@
 import { create } from "zustand";
-import { IPizzaDTO } from "@/src/types/pizza";
-
-interface PizzaStore {
-    pizza: IPizzaDTO[];
-    currentState: number;
-    currentItem: string;
-    isActiveMockup: boolean;
-    setPizza: (pizza: IPizzaDTO[]) => void;
-    setActiveMockup: () => void;
-    setCurrentState: (index: number) => void;
-    setCurrentItem: (index: string) => void;
-    sortPizza: (string: string) => void;
-}
+import { PizzaCartStore, PizzaStore } from "../types/store.types";
 
 export const usePizzaData = create<PizzaStore>()((set) => ({
     pizza: [],
@@ -39,10 +27,24 @@ export const usePizzaData = create<PizzaStore>()((set) => ({
     setCurrentItem: (index) => set({ currentItem: index }),
 }));
 
-export const usePizzaCart = create()((set) => ({
+export const usePizzaCart = create<PizzaCartStore>()((set) => ({
     addedPizza: [],
     totalPrice: 0,
     pizzaquantity: 0,
+
+    addPizza: (pizza) =>
+        set((state) => {
+            for (let i = 0; i < state.addedPizza.length; i++) {
+                if (state.addedPizza[i].id === pizza.id) {
+                    return {
+                        addedPizza: [...state.addedPizza],
+                        pizzaquantity: state.addedPizza.length + 1,
+                    };
+                }
+            }
+            return { addedPizza: [...state.addedPizza, pizza] };
+        }),
+
     setTotalPrice: (price) =>
         set((state) => ({
             totalPrice: state.addedPizza.reduce(

@@ -1,6 +1,6 @@
 "use client";
 
-import { IPizzaDTO } from "@/src/types/pizza";
+import { IPizzaDTO } from "@/src/types/pizza.types";
 import { Button } from "./Button";
 
 import Image from "next/image";
@@ -12,10 +12,8 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
         1: "традиционный",
     } as const;
 
-    const addToCart = usePizzaCart((state) => state.addedPizza);
-    const pizzaName = usePizzaCart((state) => state.addedPizza);
-    const setTotalPrice = usePizzaCart((state) => state.setTotalPrice);
-    const setquantity = usePizzaCart((state) => state.setPizzaQuantity);
+    const { setTotalPrice, addedPizza, setPizzaQuantity, addPizza } =
+        usePizzaCart();
 
     return (
         <li className="flex flex-col text-center">
@@ -54,10 +52,10 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
                 <Button
                     text={"Добавить"}
                     onClick={() => {
-                        addToCart.push(pizza);
+                        addPizza(pizza);
                         setTotalPrice(0);
-                        setquantity(0);
-                        console.log(pizzaName);
+                        setPizzaQuantity(0);
+                        console.log(addedPizza);
                     }}
                 />
             </div>

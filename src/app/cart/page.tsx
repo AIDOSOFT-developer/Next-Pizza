@@ -1,3 +1,62 @@
+"use client";
+
+import { usePizzaCart } from "@/src/store/store";
+import Image from "next/image";
+
 export default function Cart() {
-    return <div>Cart</div>;
+    const { addedPizza, totalPrice, setPizzaQuantity, pizzaquantity } =
+        usePizzaCart();
+
+    return (
+        <ul>
+            {addedPizza.map((pizza) => (
+                <li
+                    className="flex items-center justify-between"
+                    key={pizza.id}
+                >
+                    <div className="flex items-center space-x-4">
+                        <Image
+                            src={pizza.imageUrl}
+                            alt={pizza.name}
+                            width={80}
+                            height={80}
+                            unoptimized
+                        />
+
+                        <div className="">
+                            <h3 className="font-bold">{pizza.name}</h3>
+                        </div>
+                    </div>
+
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() =>
+                                setPizzaQuantity(addedPizza.length - 1)
+                            }
+                            className="button-input"
+                        >
+                            -
+                        </button>
+                        <input
+                            className="inline-block w-3 text-center font-bold"
+                            type="text"
+                            value={pizzaquantity}
+                        />
+                        <button
+                            onClick={() =>
+                                setPizzaQuantity(addedPizza.length + 1)
+                            }
+                            className="button-input"
+                        >
+                            +
+                        </button>
+                    </div>
+
+                    <div className="">
+                        <p>${pizza.price * pizzaquantity}</p>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    );
 }

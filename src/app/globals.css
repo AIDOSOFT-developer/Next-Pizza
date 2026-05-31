@@ -44,5 +44,9 @@
 }
 
 @utility button-inline-hover {
-    @apply hover:bg-orange hover:text-white transition duration-250 ease-in-out;
+    @apply hover:bg-orange transition duration-250 ease-in-out hover:text-white;
+}
+
+@utility button-input {
+    @apply border-orange text-orange h-10 w-10 rounded-full border-2 text-xl font-bold;
 }

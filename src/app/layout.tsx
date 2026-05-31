@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// @ts-ignore TS7016: Could not find a declaration file for module './globals.css'.
 import "./globals.css";
 import { CartButton } from "../components/UI/Button";
 import Logo from "../components/UI/Logo";
