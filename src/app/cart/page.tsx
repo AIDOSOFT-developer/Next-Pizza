@@ -4,8 +4,7 @@ import { usePizzaCart } from "@/src/store/store";
 import Image from "next/image";
 
 export default function Cart() {
-    const { addedPizza, totalPrice, setPizzaQuantity, pizzaquantity } =
-        usePizzaCart();
+    const { addedPizza, totalPrice } = usePizzaCart();
 
     return (
         <ul>
@@ -29,31 +28,18 @@ export default function Cart() {
                     </div>
 
                     <div className="flex gap-2">
-                        <button
-                            onClick={() =>
-                                setPizzaQuantity(addedPizza.length - 1)
-                            }
-                            className="button-input"
-                        >
-                            -
-                        </button>
+                        <button className="button-input">-</button>
                         <input
                             className="inline-block w-3 text-center font-bold"
                             type="text"
-                            value={pizzaquantity}
+                            value={totalPrice}
+                            onChange={(event) => event.target.value}
                         />
-                        <button
-                            onClick={() =>
-                                setPizzaQuantity(addedPizza.length + 1)
-                            }
-                            className="button-input"
-                        >
-                            +
-                        </button>
+                        <button className="button-input">+</button>
                     </div>
 
                     <div className="">
-                        <p>${pizza.price * pizzaquantity}</p>
+                        <p>${pizza.price}</p>
                     </div>
                 </li>
             ))}

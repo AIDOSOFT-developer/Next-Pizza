@@ -23,15 +23,14 @@ export function Button({
 }
 
 export function CartButton() {
-    const price = usePizzaCart((state) => state.totalPrice);
-    const quantity = usePizzaCart((state) => state.pizzaquantity);
+    const { totalPrice, pizzaQuantity } = usePizzaCart();
 
     return (
         <Link
             href={"/cart"}
             className="bg-orange button-hover flex items-center justify-around gap-3 rounded-full px-3 py-2 font-bold text-white md:px-5 md:py-3.75"
         >
-            <div className="">{price} $</div>
+            <div className="">{totalPrice} $</div>
             <span className="h-6.5 w-px bg-white/25" />
             <div className="flex gap-2">
                 <Image
@@ -41,7 +40,7 @@ export function CartButton() {
                     alt="Cart Icon"
                     unoptimized
                 />
-                {quantity}
+                {pizzaQuantity}
             </div>
         </Link>
     );

@@ -5,7 +5,8 @@
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
         "category": [0, 1],
         "size": [26, 30, 40],
-        "price": 490
+        "price": 490,
+        "quantity": 0
     },
 
     {
@@ -14,7 +15,8 @@
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
         "category": [0, 1],
         "size": [26, 30, 40],
-        "price": 395
+        "price": 395,
+        "quantity": 0
     },
 
     {
@@ -23,7 +25,8 @@
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
         "category": [0, 1],
         "size": [26, 30, 40],
-        "price": 1500
+        "price": 1500,
+        "quantity": 0
     },
 
     {
@@ -32,7 +35,8 @@
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
         "category": [0, 1],
         "size": [26, 30, 40],
-        "price": 2100
+        "price": 2100,
+        "quantity": 0
     },
 
     {
@@ -41,6 +45,7 @@
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
         "category": [0, 1],
         "size": [26, 30, 40],
-        "price": 150
+        "price": 150,
+        "quantity": 0
     }
 ]

@@ -1,12 +1,14 @@
-export interface IPizzaInfo {
-  createdAt?: Date;
+export interface ApiResponse<T> {
+    success: string;
+    data: T;
 }
 
-export interface IPizzaDTO extends IPizzaInfo {
-  id: number;
-  name: string;
-  imageUrl: string;
-  category: number[];
-  size: number[];
-  price: number;
+export interface IPizzaDTO {
+    id: number;
+    name: string;
+    imageUrl: string;
+    category: number[];
+    size: number[];
+    price: number;
+    quantity: number;
 }

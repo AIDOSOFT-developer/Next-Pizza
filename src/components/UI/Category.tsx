@@ -7,10 +7,10 @@ export default function Category() {
     const { currentState, setCurrentState } = usePizzaData();
 
     return (
-        <ul className="flex gap-2.5 w-full md:w-2/3 sm:w-1/2  overflow-x-scroll lg:overflow-hidden">
+        <ul className="flex w-full gap-2.5 overflow-x-scroll sm:w-1/2 md:w-2/3 lg:overflow-hidden">
             {category.map((item, index) => (
                 <li
-                    className={`px-7 py-3 ${index === currentState ? "bg-black text-white" : "bg-silver"} select-none cursor-pointer rounded-full font-bold`}
+                    className={`px-7 py-3 ${index === currentState ? "bg-black text-white" : "bg-silver"} cursor-pointer rounded-full font-bold select-none`}
                     key={item}
                     onClick={() => {
                         (setCurrentState(index), console.log(currentState));
