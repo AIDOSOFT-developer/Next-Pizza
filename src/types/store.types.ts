@@ -18,8 +18,8 @@ export interface PizzaMockup {
 export interface PizzaCartStore {
     addedPizza: IPizzaDTO[];
     totalPrice: number;
-    pizzaQuantity: number;
-    // setPizzaQuantity: (quantity: number) => void;
+    cartQuantity: number;
+    setCartQuantity: () => void;
     addPizza: (pizza: IPizzaDTO) => void;
-    setTotalPrice: (pizza: IPizzaDTO) => void;
+    setTotalPrice: () => void;
 }

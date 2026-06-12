@@ -4,7 +4,7 @@ import { usePizzaCart } from "@/src/store/store";
 import Image from "next/image";
 
 export default function Cart() {
-    const { addedPizza, totalPrice } = usePizzaCart();
+    const { addedPizza } = usePizzaCart();
 
     return (
         <ul>
@@ -32,7 +32,7 @@ export default function Cart() {
                         <input
                             className="inline-block w-3 text-center font-bold"
                             type="text"
-                            value={totalPrice}
+                            value={pizza.quantity}
                             onChange={(event) => event.target.value}
                         />
                         <button className="button-input">+</button>

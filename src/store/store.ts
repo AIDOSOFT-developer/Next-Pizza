@@ -37,7 +37,7 @@ export const usePizzaMockup = create<PizzaMockup>((set) => ({
 export const usePizzaCart = create<PizzaCartStore>()((set) => ({
     addedPizza: [],
     totalPrice: 0,
-    pizzaQuantity: 0,
+    cartQuantity: 0,
 
     addPizza: (pizza) =>
         set((state) => {
@@ -58,13 +58,24 @@ export const usePizzaCart = create<PizzaCartStore>()((set) => ({
             };
         }),
 
-    setTotalPrice: (pizza) =>
+    setTotalPrice: () =>
         set((state) => {
             return {
                 totalPrice: state.addedPizza.reduce(
                     (acc, item) => acc + item.price * item.quantity,
                     0,
                 ),
+            };
+        }),
+
+    setCartQuantity: () =>
+        set((state) => {
+            const cartArray = [
+                ...state.addedPizza.map((item) => item.quantity),
+            ];
+
+            return {
+                cartQuantity: cartArray.reduce((acc, value) => acc + value, 0),
             };
         }),
 }));

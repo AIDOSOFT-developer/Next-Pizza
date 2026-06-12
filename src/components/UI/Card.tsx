@@ -12,7 +12,8 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
         1: "традиционный",
     } as const;
 
-    const { addedPizza, addPizza, setTotalPrice } = usePizzaCart();
+    const { addedPizza, addPizza, setTotalPrice, setCartQuantity } =
+        usePizzaCart();
 
     return (
         <li className="flex flex-col text-center">
@@ -52,9 +53,9 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
                     text={"Добавить"}
                     onClick={() => {
                         addPizza(pizza);
-                        setTotalPrice(pizza);
+                        setTotalPrice();
+                        setCartQuantity();
                         console.log(addedPizza);
-                        console.log(setTotalPrice);
                     }}
                 />
             </div>

@@ -23,7 +23,7 @@ export function Button({
 }
 
 export function CartButton() {
-    const { totalPrice, pizzaQuantity } = usePizzaCart();
+    const { totalPrice, cartQuantity } = usePizzaCart();
 
     return (
         <Link
@@ -40,7 +40,7 @@ export function CartButton() {
                     alt="Cart Icon"
                     unoptimized
                 />
-                {pizzaQuantity}
+                {cartQuantity}
             </div>
         </Link>
     );
