@@ -30,7 +30,7 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
 
             <div className="bg-silver mb-3 flex cursor-pointer flex-col gap-2 rounded-xl p-2 select-none">
                 <div className="flex justify-between">
-                    {pizza.category.map((type) => (
+                    {pizza.type.map((type) => (
                         <span key={type} className={`w-full`}>
                             {categoryType[type]}
                         </span>

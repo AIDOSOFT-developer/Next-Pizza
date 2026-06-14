@@ -3,49 +3,59 @@
         "id": 1,
         "name": "Сырная",
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-        "category": [0, 1],
+        "type": [0],
+        "category": 2,
         "size": [26, 30, 40],
         "price": 490,
-        "quantity": 0
+        "quantity": 0,
+        "rating": 10
     },
 
     {
         "id": 2,
         "name": "Мясная",
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-        "category": [0, 1],
+        "type": [0, 1],
+        "category": 1,
         "size": [26, 30, 40],
         "price": 395,
-        "quantity": 0
+        "quantity": 0,
+        "rating": 8
     },
 
     {
         "id": 3,
         "name": "Пепперони",
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-        "category": [0, 1],
+        "type": [0, 1],
+        "category": 1,
         "size": [26, 30, 40],
         "price": 1500,
-        "quantity": 0
+        "quantity": 0,
+        "rating": 7
     },
 
     {
         "id": 4,
         "name": "Гавайская",
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-        "category": [0, 1],
+        "type": [0, 1],
+        "category": 2,
         "size": [26, 30, 40],
         "price": 2100,
-        "quantity": 0
+        "quantity": 0,
+        "rating": 8
     },
 
     {
         "id": 5,
         "name": "Вегетарианская",
+        "category": 2,
         "imageUrl": "https://media.dodostatic.net/image/r:292x292/01995c3abfda7669b8fdf577f86b07a9.avif",
-        "category": [0, 1],
+        "type": [0, 1],
         "size": [26, 30, 40],
         "price": 150,
-        "quantity": 0
+        "quantity": 0,
+        "rating": 6
     }
 ]

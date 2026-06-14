@@ -8,8 +8,8 @@ export default function Logo() {
             <Image width={40} height={40} src={logo} alt="Logo" unoptimized />
 
             <div className="">
-                <h2>REACT PIZZA</h2>
-                <p className="text-gray">самая вкусная пицца во вселенной</p>
+                <h2>NEXT PIZZA</h2>
+                <p className="text-gray">made by AIDOSOFT</p>
             </div>
         </Link>
     );

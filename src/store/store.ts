@@ -1,30 +1,52 @@
 import { create } from "zustand";
 import { PizzaCartStore, PizzaMockup, PizzaStore } from "../types/store.types";
-import { IPizzaDTO } from "../types/pizza.types";
 
-export const usePizzaData = create<PizzaStore>()((set) => ({
+export const usePizzaData = create<PizzaStore>()((set, get) => ({
     pizza: [],
-    currentState: 0,
-    isActiveMockup: false,
-    currentItem: "популярности",
-    setPizza: (pizza) => set(() => ({ pizza })),
+    filteredPizza: [],
 
+    currentItem: "популярности",
+    currentState: 0,
+
+    setPizza: (pizza) => set(() => ({ pizza, filteredPizza: pizza })),
     setCurrentState: (index) => set(() => ({ currentState: index })),
+    setCurrentItem: (index) => set({ currentItem: index }),
+
     sortPizza(string) {
+        const data = [...get().filteredPizza];
+        let sorted = data;
+
         switch (string) {
-            case "по цене (ASC)":
-                set((state) => ({
-                    pizza: state.pizza.sort((a, b) => a.price - b.price),
-                }));
+            case "популярности":
+                sorted = data.sort((a, b) => b.rating - a.rating);
                 break;
-            case "по цене (DESC)":
-                set((state) => ({
-                    pizza: state.pizza.sort((a, b) => b.price - a.price),
-                }));
+
+            case "цене (ASC)":
+                sorted = data.sort((a, b) => a.price - b.price);
+
+                break;
+            case "цене (DESC)":
+                sorted = data.sort((a, b) => b.price - a.price);
+
+                break;
+
+            case "алфавиту":
+                sorted = data.sort((a, b) => a.name.localeCompare(b.name));
                 break;
         }
+
+        set({ filteredPizza: sorted });
     },
-    setCurrentItem: (index) => set({ currentItem: index }),
+
+    sortCategoryPizza: (pizzaCategory) =>
+        set((state) => ({
+            filteredPizza:
+                pizzaCategory === 0
+                    ? state.pizza
+                    : state.pizza.filter(
+                          (item) => item.category === pizzaCategory,
+                      ),
+        })),
 }));
 
 export const usePizzaMockup = create<PizzaMockup>((set) => ({

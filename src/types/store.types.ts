@@ -2,12 +2,14 @@ import { IPizzaDTO } from "./pizza.types";
 
 export interface PizzaStore {
     pizza: IPizzaDTO[];
+    filteredPizza: IPizzaDTO[];
     currentState: number;
     currentItem: string;
     setPizza: (pizza: IPizzaDTO[]) => void;
     setCurrentState: (index: number) => void;
     setCurrentItem: (index: string) => void;
     sortPizza: (string: string) => void;
+    sortCategoryPizza: (pizzaCategory: number) => void;
 }
 
 export interface PizzaMockup {

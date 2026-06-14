@@ -38,7 +38,7 @@ export default function RootLayout({
                     <div
                         className={`container rounded-xl bg-white p-7.5 h-[calc(${height}vh-${marginInline}px)] m-7.5 mx-auto`}
                     >
-                        <div className="border-silver flex flex-col justify-between gap-2 border-b-2 pb-4 sm:flex-row md:pb-10">
+                        <div className="border-silver mb-4 flex flex-col justify-between gap-2 border-b-2 pb-4 sm:flex-row md:mb-10 md:pb-10">
                             <Logo />
                             <CartButton />
                         </div>

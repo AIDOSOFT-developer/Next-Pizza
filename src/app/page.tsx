@@ -5,7 +5,7 @@ import Sort from "../components/UI/Sort";
 export default function Home() {
     return (
         <div className="">
-            <div className="mt-4 flex flex-col items-end justify-between gap-2 sm:flex-row sm:items-center md:mt-10">
+            <div className="flex flex-col items-end justify-between gap-2 sm:flex-row sm:items-center">
                 <Category />
                 <Sort />
             </div>

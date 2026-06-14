@@ -7,8 +7,10 @@ export interface IPizzaDTO {
     id: number;
     name: string;
     imageUrl: string;
-    category: number[];
+    type: number[];
+    category: number;
     size: number[];
     price: number;
     quantity: number;
+    rating: number;
 }

@@ -47,6 +47,10 @@
     @apply hover:bg-orange transition duration-250 ease-in-out hover:text-white;
 }
 
+@utility button-black-hover {
+    @apply transition-colors duration-250 hover:bg-[#3F3A3A];
+}
+
 @utility button-input {
-    @apply border-orange text-orange h-10 w-10 rounded-full border-2 text-xl font-bold;
+    @apply border-orange text-orange flex h-8 w-8 items-center justify-center rounded-full border-2 text-xl font-bold;
 }

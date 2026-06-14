@@ -45,3 +45,14 @@ export function CartButton() {
         </Link>
     );
 }
+
+export function BlackButton({ text }: { text: string }) {
+    return (
+        <Link
+            href={"/"}
+            className="button-black-hover flex items-center justify-around gap-3 rounded-full bg-black px-3 py-2 font-bold text-white md:px-5 md:py-3.75"
+        >
+            {text}
+        </Link>
+    );
+}

@@ -7,9 +7,4 @@ export const category = [
     "Закрытые",
 ];
 
-export const sort = [
-    "популярности",
-    "по цене (ASC)",
-    "по цене (DESC)",
-    "по алфавиту",
-];
+export const sort = ["популярности", "цене (ASC)", "цене (DESC)", "алфавиту"];
