@@ -51,6 +51,8 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
 
                 <Button
                     text={"Добавить"}
+                    variant={"outline"}
+                    size={"sm"}
                     onClick={() => {
                         addPizza(pizza);
                         setTotalPrice();

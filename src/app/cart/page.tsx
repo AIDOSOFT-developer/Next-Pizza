@@ -3,7 +3,7 @@
 import { usePizzaCart } from "@/src/store/store";
 import illustration from "@/public/order.png";
 import Image from "next/image";
-import { BlackButton } from "@/src/components/UI/Button";
+import { Button } from "@/src/components/UI/Button";
 
 export default function Cart() {
     const { addedPizza, totalPrice } = usePizzaCart();
@@ -86,7 +86,11 @@ export default function Cart() {
                             unoptimized
                         />
 
-                        <BlackButton text={"Вернуться назад"} />
+                        <Button
+                            text={"Вернуться назад"}
+                            variant={"secondary"}
+                            size={"sm"}
+                        />
                     </div>
                 </div>
             )}

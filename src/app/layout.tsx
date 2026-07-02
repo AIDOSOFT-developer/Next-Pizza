@@ -40,7 +40,11 @@ export default function RootLayout({
                     >
                         <div className="border-silver mb-4 flex flex-col justify-between gap-2 border-b-2 pb-4 sm:flex-row md:mb-10 md:pb-10">
                             <Logo />
-                            <CartButton />
+                            <CartButton
+                                text={""}
+                                variant={"cart"}
+                                size={"lg"}
+                            />
                         </div>
 
                         {children}

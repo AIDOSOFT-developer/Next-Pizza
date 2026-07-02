@@ -1,6 +1,6 @@
 "use client";
 
-import { sort } from "@/src/constants/constants";
+import { SORT } from "@/src/constants/constants";
 import { usePizzaData, usePizzaMockup } from "@/src/store/store";
 
 export default function Sort() {
@@ -21,7 +21,7 @@ export default function Sort() {
 
             {isActiveMockup && (
                 <ul className="absolute top-8 right-0 z-10 cursor-pointer rounded-2xl bg-white py-2.5 text-sm font-bold shadow-xl select-none">
-                    {sort.map((item) => (
+                    {SORT.map((item) => (
                         <li
                             key={item}
                             className={`px-3.75 py-2.5 ${currentItem === item ? "bg-orange/10 text-orange" : ""}`}

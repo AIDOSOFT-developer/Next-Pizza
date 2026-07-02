@@ -4,32 +4,25 @@ import Image from "next/image";
 import CartIcon from "@/public/icons/cart.svg";
 import { usePizzaCart } from "@/src/store/store";
 import Link from "next/link";
+import { IButtonProps } from "@/src/types/button.types";
+import { SIZES, VARIANTS } from "@/src/constants/constants";
 
-export function Button({
-    text,
-    onClick,
-}: {
-    text: string;
-    onClick: () => void;
-}) {
+export function Button({ text, size, variant, onClick }: IButtonProps) {
     return (
         <button
-            className="border-orange text-orange button-inline-hover rounded-full border-2 px-4 py-2.5 font-bold"
             onClick={onClick}
+            className={`${VARIANTS[variant]} ${SIZES[size]}`}
         >
             {text}
         </button>
     );
 }
 
-export function CartButton() {
+export function CartButton({ variant, size }: IButtonProps) {
     const { totalPrice, cartQuantity } = usePizzaCart();
 
     return (
-        <Link
-            href={"/cart"}
-            className="bg-orange button-hover flex items-center justify-around gap-3 rounded-full px-3 py-2 font-bold text-white md:px-5 md:py-3.75"
-        >
+        <Link href={"/cart"} className={`${VARIANTS[variant]} ${SIZES[size]}`}>
             <div className="">{totalPrice} $</div>
             <span className="h-6.5 w-px bg-white/25" />
             <div className="flex gap-2">
@@ -42,17 +35,6 @@ export function CartButton() {
                 />
                 {cartQuantity}
             </div>
-        </Link>
-    );
-}
-
-export function BlackButton({ text }: { text: string }) {
-    return (
-        <Link
-            href={"/"}
-            className="button-black-hover flex items-center justify-around gap-3 rounded-full bg-black px-3 py-2 font-bold text-white md:px-5 md:py-3.75"
-        >
-            {text}
         </Link>
     );
 }
