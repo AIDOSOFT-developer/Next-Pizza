@@ -1,5 +1,8 @@
 import { create } from "zustand";
-import { PizzaCartStore, PizzaMockup, PizzaStore } from "../types/store.types";
+
+import { PizzaMockup, PizzaStore } from "../types/store.types";
+import { IPizzaDTO } from "../types/pizza.types";
+import { devtools } from "zustand/middleware";
 
 export const usePizzaData = create<PizzaStore>()((set, get) => ({
     pizza: [],
@@ -56,48 +59,56 @@ export const usePizzaMockup = create<PizzaMockup>((set) => ({
         set((state) => ({ isActiveMockup: !state.isActiveMockup })),
 }));
 
-export const usePizzaCart = create<PizzaCartStore>()((set) => ({
-    addedPizza: [],
-    totalPrice: 0,
-    cartQuantity: 0,
+interface PizzaCart {
+    cart: IPizzaDTO[];
+    addPizza: (pizza: IPizzaDTO) => void;
+    decreasePizza: (pizza: IPizzaDTO) => void;
+}
 
-    addPizza: (pizza) =>
-        set((state) => {
-            const existing = state.addedPizza.find(
-                (item) => item.id === pizza.id,
-            );
-            if (existing) {
+export const useCartPizza = create<PizzaCart>()(
+    devtools((set, get) => ({
+        cart: [],
+
+        addPizza: (pizza) =>
+            set((state) => {
+                const existing = get().cart.find(
+                    (item) => item.id === pizza.id,
+                );
+
+                if (existing) {
+                    return {
+                        cart: state.cart.map((cartItem) =>
+                            cartItem.id === pizza.id
+                                ? { ...cartItem, quantity: pizza.quantity + 1 }
+                                : cartItem,
+                        ),
+                    };
+                }
+
                 return {
-                    addedPizza: state.addedPizza.map((item) =>
-                        item.id === pizza.id
-                            ? { ...item, quantity: (item.quantity ?? 0) + 1 }
-                            : item,
-                    ),
+                    cart: [...state.cart, { ...pizza, quantity: 1 }],
                 };
-            }
-            return {
-                addedPizza: [...state.addedPizza, { ...pizza, quantity: 1 }],
-            };
-        }),
+            }),
 
-    setTotalPrice: () =>
-        set((state) => {
-            return {
-                totalPrice: state.addedPizza.reduce(
-                    (acc, item) => acc + item.price * item.quantity,
-                    0,
-                ),
-            };
-        }),
+        decreasePizza: (pizza) =>
+            set((state) => {
+                const existing = state.cart.find(
+                    (item) => item.id === pizza.id,
+                );
 
-    setCartQuantity: () =>
-        set((state) => {
-            const cartArray = [
-                ...state.addedPizza.map((item) => item.quantity),
-            ];
+                if (existing) {
+                    return {
+                        cart: state.cart.map((cartItem) =>
+                            cartItem.id === pizza.id
+                                ? { ...cartItem, quantity: pizza.quantity - 1 }
+                                : cartItem,
+                        ),
+                    };
+                }
 
-            return {
-                cartQuantity: cartArray.reduce((acc, value) => acc + value, 0),
-            };
-        }),
-}));
+                return {
+                    cart: [...state.cart],
+                };
+            }),
+    })),
+);
