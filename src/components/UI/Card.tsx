@@ -4,7 +4,7 @@ import { IPizzaDTO } from "@/src/types/pizza.types";
 import { Button } from "./Button";
 
 import Image from "next/image";
-import { usePizzaCart } from "@/src/store/store";
+import { useCartPizza } from "@/src/store/store";
 
 export default function Card({ pizza }: { pizza: IPizzaDTO }) {
     const categoryType: Record<number, string> = {
@@ -12,8 +12,7 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
         1: "традиционный",
     } as const;
 
-    const { addedPizza, addPizza, setTotalPrice, setCartQuantity } =
-        usePizzaCart();
+    const { addPizza } = useCartPizza();
 
     return (
         <li className="flex flex-col text-center">
@@ -50,15 +49,10 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
                 <h3>от {pizza.price}</h3>
 
                 <Button
+                    onClick={() => addPizza(pizza)}
                     text={"Добавить"}
                     variant={"outline"}
                     size={"sm"}
-                    onClick={() => {
-                        addPizza(pizza);
-                        setTotalPrice();
-                        setCartQuantity();
-                        console.log(addedPizza);
-                    }}
                 />
             </div>
         </li>

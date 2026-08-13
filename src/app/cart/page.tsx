@@ -1,21 +1,26 @@
 "use client";
 
-import { usePizzaCart } from "@/src/store/store";
 import illustration from "@/public/order.png";
 import Image from "next/image";
 import { Button } from "@/src/components/UI/Button";
+import { useCartPizza } from "@/src/store/store";
 
 export default function Cart() {
-    const { addedPizza, totalPrice } = usePizzaCart();
+    const { cart, addPizza, decreasePizza } = useCartPizza();
+
+    const totalPrice = cart.reduce(
+        (acc, cartItem) => acc + cartItem.price * cartItem.quantity,
+        0,
+    );
 
     const height = 102;
     let marginInline = 80;
 
     return (
         <>
-            {addedPizza.length > 0 ? (
+            {cart.length > 0 ? (
                 <ul className="flex flex-col gap-y-5">
-                    {addedPizza.map((pizza) => (
+                    {cart.map((pizza) => (
                         <li
                             className="flex items-center justify-between border-b border-gray-400 pb-1"
                             key={pizza.id}
@@ -35,19 +40,29 @@ export default function Cart() {
                             </div>
 
                             <div className="flex w-40 justify-center gap-2">
-                                <button className="button-input">-</button>
+                                <button
+                                    onClick={() => decreasePizza(pizza)}
+                                    className="button-input"
+                                >
+                                    -
+                                </button>
                                 <input
-                                    className="inline-block w-3 text-center font-bold"
+                                    className="inline-block w-5 text-center font-bold"
                                     type="text"
                                     value={pizza.quantity}
                                     onChange={(event) => event.target.value}
                                 />
-                                <button className="button-input">+</button>
+                                <button
+                                    onClick={() => addPizza(pizza)}
+                                    className="button-input"
+                                >
+                                    +
+                                </button>
                             </div>
 
                             <div className="flex w-1/5 justify-end">
                                 <p className="text-xl font-bold">
-                                    ${pizza.price}
+                                    ${pizza.price * pizza.quantity}
                                 </p>
                             </div>
                         </li>

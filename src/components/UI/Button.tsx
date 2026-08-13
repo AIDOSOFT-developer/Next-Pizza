@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import CartIcon from "@/public/icons/cart.svg";
-import { usePizzaCart } from "@/src/store/store";
+// import { usePizzaCart } from "@/src/store/store";
 import Link from "next/link";
 import { IButtonProps } from "@/src/types/button.types";
 import { SIZES, VARIANTS } from "@/src/constants/constants";
+import { useCartPizza } from "@/src/store/store";
 
 export function Button({ text, size, variant, onClick }: IButtonProps) {
     return (
@@ -19,7 +20,14 @@ export function Button({ text, size, variant, onClick }: IButtonProps) {
 }
 
 export function CartButton({ variant, size }: IButtonProps) {
-    const { totalPrice, cartQuantity } = usePizzaCart();
+    const { cart } = useCartPizza();
+
+    const totalPrice = cart.reduce(
+        (acc, cartItem) => acc + cartItem.price * cartItem.quantity,
+        0,
+    );
+
+    const quantity = cart.reduce((acc, cartItem) => acc + cartItem.quantity, 0);
 
     return (
         <Link href={"/cart"} className={`${VARIANTS[variant]} ${SIZES[size]}`}>
@@ -33,7 +41,8 @@ export function CartButton({ variant, size }: IButtonProps) {
                     alt="Cart Icon"
                     unoptimized
                 />
-                {cartQuantity}
+
+                {quantity}
             </div>
         </Link>
     );
