@@ -15,7 +15,7 @@ export default function Card({ pizza }: { pizza: IPizzaDTO }) {
     const { addPizza } = useCartPizza();
 
     return (
-        <li className="flex flex-col text-center">
+        <li className="flex cursor-pointer flex-col text-center lg:transition-transform lg:duration-300 lg:hover:scale-95">
             <Image
                 className="mb-2.5 w-full"
                 width={260}
