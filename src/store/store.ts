@@ -1,13 +1,12 @@
 import { create } from "zustand";
 
-import { PizzaMockup, PizzaStore } from "../types/store.types";
+import { PizzaCart, PizzaMockup, PizzaStore } from "../types/store.types";
 import { IPizzaDTO } from "../types/pizza.types";
 import { devtools } from "zustand/middleware";
 
 export const usePizzaData = create<PizzaStore>()((set, get) => ({
     pizza: [],
     filteredPizza: [],
-
     currentItem: "популярности",
     currentState: 0,
 
@@ -58,12 +57,6 @@ export const usePizzaMockup = create<PizzaMockup>((set) => ({
     setActiveMockup: () =>
         set((state) => ({ isActiveMockup: !state.isActiveMockup })),
 }));
-
-interface PizzaCart {
-    cart: IPizzaDTO[];
-    addPizza: (pizza: IPizzaDTO) => void;
-    decreasePizza: (pizza: IPizzaDTO) => void;
-}
 
 export const useCartPizza = create<PizzaCart>()(
     devtools((set, get) => ({

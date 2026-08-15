@@ -25,3 +25,9 @@ export interface PizzaCartStore {
     addPizza: (pizza: IPizzaDTO) => void;
     setTotalPrice: () => void;
 }
+
+export interface PizzaCart {
+    cart: IPizzaDTO[];
+    addPizza: (pizza: IPizzaDTO) => void;
+    decreasePizza: (pizza: IPizzaDTO) => void;
+}

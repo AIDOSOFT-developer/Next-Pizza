@@ -10,19 +10,19 @@
 
 @layer base {
     h1 {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     h2 {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     h3 {
-        font-size: 22px;
+        font-size: clamp(1rem, calc(0.865rem + 0.513vw), 1.25rem);
     }
 
     h4 {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
     h1,

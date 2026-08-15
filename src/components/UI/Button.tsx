@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import CartIcon from "@/public/icons/cart.svg";
-// import { usePizzaCart } from "@/src/store/store";
 import Link from "next/link";
 import { IButtonProps } from "@/src/types/button.types";
 import { SIZES, VARIANTS } from "@/src/constants/constants";

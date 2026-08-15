@@ -22,10 +22,10 @@ export default function Cart() {
                 <ul className="flex flex-col gap-y-5">
                     {cart.map((pizza) => (
                         <li
-                            className="flex items-center justify-between border-b border-gray-400 pb-1"
+                            className="grid grid-cols-[4fr_1fr_1fr] flex-wrap items-center justify-center gap-x-2 border-b border-gray-400 pb-1 lg:grid-cols-3"
                             key={pizza.id}
                         >
-                            <div className="flex w-1/4 items-center space-x-4">
+                            <div className="flex items-center space-x-4">
                                 <Image
                                     src={pizza.imageUrl}
                                     alt={pizza.name}
@@ -34,12 +34,12 @@ export default function Cart() {
                                     unoptimized
                                 />
 
-                                <div className="">
+                                <div className="line-clamp-1 max-w-25 md:line-clamp-none">
                                     <h3 className="font-bold">{pizza.name}</h3>
                                 </div>
                             </div>
 
-                            <div className="flex w-40 justify-center gap-2">
+                            <div className="inline-flex justify-center gap-2">
                                 <button
                                     onClick={() => decreasePizza(pizza)}
                                     className="button-input"
@@ -60,15 +60,15 @@ export default function Cart() {
                                 </button>
                             </div>
 
-                            <div className="flex w-1/5 justify-end">
-                                <p className="text-xl font-bold">
+                            <div className="flex justify-end">
+                                <h3 className="font-bold">
                                     ${pizza.price * pizza.quantity}
-                                </p>
+                                </h3>
                             </div>
                         </li>
                     ))}
 
-                    <div className="flex justify-end">
+                    <div className="inline-flex justify-end">
                         <p className="text-xl">
                             Общая сумма составляет:
                             <span className="ml-4 text-2xl font-bold">
